@@ -1,0 +1,357 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pinShadow {
+
+            0%,
+            100% {
+                box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(139, 90, 43, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(160, 102, 51, 0.1) 0%, transparent 50%),
+                linear-gradient(135deg, #c19a6b 0%, #d4a574 50%, #c19a6b 100%);
+            background-size: cover;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(139, 90, 43, 0.03) 2px, rgba(139, 90, 43, 0.03) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(139, 90, 43, 0.03) 2px, rgba(139, 90, 43, 0.03) 4px);
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        #club {
+            text-align: center;
+            color: #3d2817;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 50px;
+            animation: fadeIn 0.6s ease-out;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+            letter-spacing: 2px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 40px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .box-1::before,
+        .box-2::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 24px;
+            background: radial-gradient(circle at 30% 30%, #e74c3c, #c0392b);
+            border-radius: 50%;
+            box-shadow:
+                0 2px 4px rgba(0, 0, 0, 0.3),
+                inset -2px -2px 4px rgba(0, 0, 0, 0.2),
+                inset 2px 2px 4px rgba(255, 255, 255, 0.3);
+            z-index: 10;
+            animation: pinShadow 3s ease-in-out infinite;
+        }
+
+        .box-1::after,
+        .box-2::after {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            background: radial-gradient(circle at 40% 40%, #ecf0f1, #bdc3c7);
+            border-radius: 50%;
+            z-index: 11;
+            box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .box-1,
+        .box-2 {
+            background: linear-gradient(135deg, #fffacd 0%, #fef9c0 100%);
+            border-radius: 3px;
+            box-shadow:
+                0 4px 6px rgba(0, 0, 0, 0.15),
+                0 1px 3px rgba(0, 0, 0, 0.1),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+            overflow: visible;
+            animation: fadeIn 0.8s ease-out;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            transform: rotate(-1deg);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .box-1:hover,
+        .box-2:hover {
+            transform: rotate(0deg) translateY(-4px);
+            box-shadow:
+                0 8px 16px rgba(0, 0, 0, 0.2),
+                0 3px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        .box-1 {
+            flex: 1;
+            min-width: 320px;
+            max-width: 550px;
+            transform: rotate(1deg);
+        }
+
+        .box-2 {
+            flex: 1;
+            min-width: 320px;
+            max-width: 450px;
+            background: linear-gradient(135deg, #d4f4dd 0%, #c8f0d0 100%);
+            transform: rotate(-2deg);
+        }
+
+        .box-2::before {
+            background: radial-gradient(circle at 30% 30%, #3498db, #2980b9);
+        }
+
+        svg {
+            display: none;
+        }
+
+        form {
+            padding: 40px 35px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            color: #2d3748;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+        }
+
+        h3{
+            color: #2d3748;
+        } 
+
+        label {
+            display: block;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px 14px;
+            margin-top: 8px;
+            border: 2px solid #cbd5e0;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #6C63FF;
+            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15);
+            background: white;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .msg {
+            display: block;
+            font-size: 0.85rem;
+            margin-top: 5px;
+            color: #EF4444;
+            font-weight: 600;
+        }
+
+        #checkbox {
+            margin-bottom: 25px;
+        }
+
+        .listDeportes {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .listDeportes label {
+            margin-bottom: 0;
+        }
+
+        .listDeportes input[type="checkbox"] {
+            margin-right: 10px;
+            accent-color: #6C63FF;
+            width: auto;
+        }
+
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            margin-right: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        #Enviar {
+            background: linear-gradient(135deg, #6C63FF 0%, #5A52D5 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(108, 99, 255, 0.4);
+        }
+
+        #Enviar:hover {
+            background: linear-gradient(135deg, #5A52D5 0%, #4840B8 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(108, 99, 255, 0.5);
+        }
+
+
+        #Reset {
+            background: linear-gradient(135deg, #94A3B8 0%, #7E8B9C 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(148, 163, 184, 0.4);
+        }
+
+        #Reset:hover {
+            background: linear-gradient(135deg, #7E8B9C 0%, #6B7785 100%);
+            transform: translateY(-2px);
+        }
+
+        #añadirBOM,
+        #eliminarBOM {
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(72, 187, 120, 0.3);
+        }
+
+        #eliminarBOM {
+            background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%);
+            box-shadow: 0 4px 12px rgba(245, 101, 101, 0.3);
+        }
+
+        #añadirBOM:hover {
+            background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+            transform: translateY(-2px);
+        }
+
+        #eliminarBOM:hover {
+            background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            #club {
+                font-size: 2.2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            form {
+                padding: 30px 25px;
+            }
+
+            .container {
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 30px 15px;
+            }
+
+            #club {
+                font-size: 1.9rem;
+            }
+
+            button {
+                width: 100%;
+                margin-right: 0;
+            }
+        }
+
+        select {
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(72, 187, 120, 0.3);
+            font-weight: bold;
+            text-align: center;
+        }
+
+        option {
+            background-color: #38a169;
+            color: white;
+            font-weight: bold;
+        }
+
+        .DefaultBorder{
+            width: 100%;
+            padding: 12px 14px;
+            margin-top: 8px;
+            border: 2px solid #cbd5e0;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+        }
